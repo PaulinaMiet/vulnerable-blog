@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="nav">
+        {% if session.get('username') %}
+            <span>Witaj, {{ session['username'] }}! </span>
+            <a href="{{ url_for('logout') }}">Wyloguj</a>
+            <a href="{{ url_for('create_post') }}">Utwórz Post</a>
+            <a href="{{ url_for('user_profile', user_id=session['user_id']) }}">Mój profil</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Zaloguj</a>
+            <a href="{{ url_for('register') }}">Zarejestruj</a>
+        {% endif %}
+        <a href="{{ url_for('error') }}">Błąd!</a>
+        <a href="{{ url_for('index') }}">Strona Główna</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

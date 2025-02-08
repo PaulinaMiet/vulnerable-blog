@@ -1,0 +1,139 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-wrap: break-word;
+}
+
+/* Header */
+h1, h2, h3 {
+    color: #555;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Form styles */
+.search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+form button {
+    background-color: #007BFF;
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Navigation Links */
+.nav {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav a, .nav span {
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+/* Posts */
+.post {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.post a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.post p {
+    margin: 5px 0;
+}
+
+/* Comments */
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    padding: 10px;
+}
+
+.comment + .comment {
+    border-top: 1px solid #ddd;
+}
+
+.comment p {
+    margin: 5px 0;
+}
+
+.author {
+    font-weight: bold;
+    color: #555;
+}
+
+
+/* Flash messages */
+.flash {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #e0f7fa;
+    color: #007BFF;
+}
+
+.secret {
+    color: #CC0000;
+}

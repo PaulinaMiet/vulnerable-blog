@@ -1,0 +1,8 @@
+DATABASE = 'db.sqlite'
+SECRET_KEY = 'secret'
+
+SQL_INJECTION = True
+XSS_INJECTION = True
+SECRET_ACCESS = False
+UNSIGNED_COOKIES = True
+PLAIN_PASSWORDS = False

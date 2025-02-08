@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Strona Główna{% endblock %}
+
+{% block content %}
+<h1>Posty</h1>
+
+<form class="search" method="GET" action="{{ url_for('index') }}">
+    <input type="text" name="search" placeholder="Szukaj postów..." value="{{ search_query }}">
+    <button type="submit">Wyszukaj</button>
+</form>
+
+{% if search_query %}
+    <p>Rezultaty dla: <strong>{{ search_query }}</strong></p>
+{% endif %}
+
+{% if not posts %}
+    <p>Nie znaleziono żadnych postów.</p>
+{% endif %}
+
+{% for post in posts %}
+    <div class="post">
+        <a href="{{ url_for('post_detail', post_id=post['id']) }}">{{ post['title'] }}</a>
+        {% if post['content']|length < 64 %}
+            <p>{{ post['content'] }}</p>
+        {% else %}
+            <p>{{ post['content'][:64] }}...</p>
+        {% endif %}
+        <p class="author">od {{ post['username'] }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
+

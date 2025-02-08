@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Profil {{ user['username'] }}{% endblock %}
+
+{% block content %}
+<h1>Użytkownik {{ user['username'] }}</h1>
+
+<p class="secret">Sekret użytkownika: <strong>{{ user['secret'] }}</strong></p>
+
+<h2>Aktywność użytkownika</h2>
+{% if user_activity %}
+    {% for item in user_activity %}
+        <div class="{{ item['type'] }}">
+            {% if item['type'] == 'post' %}
+                <strong>Utworzył posta</strong> 
+            {% elif item['type'] == 'comment' %}
+                <strong>Dodał komentarz pod</strong> 
+            {% endif %}
+            <a href="{{ url_for('post_detail', post_id=item['id']) }}">{{ item['title'] }}</a>
+            {% if item['content']|length < 64 %}
+                <p>{{ item['content'] }}</p>
+            {% else %}
+                <p>{{ item['content'][:64] }}...</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>Brak aktywności.</p>
+{% endif %}
+
+{% endblock %}

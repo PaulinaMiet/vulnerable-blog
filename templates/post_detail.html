@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post[1] }}{% endblock %}
+
+{% block content %}
+<h1>{{ post['title'] }}</h1>
+{% if injection %}
+    <p>{{ post['content'] | safe }}</p>
+{% else %}
+    <p>{{ post['content'] }}</p>
+{% endif %}
+<p class="author">Autor: {{ post['username'] }}</p>
+<hr>
+
+<h2>Komentarze:</h2>
+
+{% if session.get('user_id') %}
+    <form method="POST">
+        <textarea name="comment" rows="4" required></textarea>
+        <button type="submit">Dodaj Komentarz</button>
+    </form>
+{% else %}
+    <p><a href="{{ url_for('login') }}">Zaloguj się</a>, aby dodać komentarz</p>
+{% endif %}
+
+<div class="comments">
+    {% for comment in comments %}
+        <div class="comment">
+            <p class="author">{{ comment['username'] }}</p>
+            <p>{{ comment['content'] }}</p>
+        </div>
+    {% endfor %}
+    {% if not comments %}
+        <p>Brak komentarzy. Możesz być pierwszy!</p>
+    {% endif %}
+</div>
+
+{% endblock %}
