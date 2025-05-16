@@ -23,6 +23,7 @@ The following OWASP Top 10 vulnerabilities are demonstrated in the project:
   Example: storing plaintext passwords; optional fix using Argon2id hashing
 
 - **A03: Injection**
+  
   Examples:
   - SQL Injection (basic example in search function)
   - Cross-Site Scripting (XSS) via stored post content
